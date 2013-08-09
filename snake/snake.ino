@@ -55,6 +55,17 @@ void setup()
   {
     pinMode(clockPins[i], INPUT);
   }
+  
+  // clears the grid so that all the cells are 0
+  // this means all the LEDS will be off if the grid is
+  // rendered at this point in time
+  for(int i = 0; i < MAX_LENGTH; i++)
+  {
+    for(int j = 0; j < MAX_WIDTH; j++)
+    {
+      grid[i][j] = 0;
+    }
+  }
 }
 
 
@@ -95,11 +106,12 @@ void snake()
   boolean bounds;      
   boolean gameOver = false;
   
-  int snakeDirection;
+  int snakeDirection = 1;
   
   /****************************************/
   
-  // Displays a start screen before the game begins
+  // Displays a start screen before the game begins and sets
+  // initial grid values
   Startup(hCoord, aCoord);  
   
   // main loop the game goes through
@@ -132,7 +144,7 @@ void snake()
         
         // Generate a new location for the apple ensuring that
         // it does not occur in the same place as te snae is
-        GenerateApple();
+        aCoord = GenerateApple();
         
         score++;
         break;
