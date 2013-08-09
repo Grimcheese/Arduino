@@ -161,18 +161,36 @@ void snake()
 
 
 // Function that displays the start screen of snake
-void Startup()
+void Startup(double hCoord, double aCoord)
 {
   
   
   // Initial setup of the grid for the game to start
   hCoord = 10.10
+  aCoord = GenerateApple();
   
   UpdateGrid(hCoord, 3);
   UpdateGrid(10.11, 2);
   UpdateGrid(10.12, 1);
   
   return;
+}
+
+double GenerateApple()
+{
+   
+}
+
+// Generates a random coordinate within the bounds of
+// the Matrix
+double GenerateCoord()
+{
+  int x = random(0, MAX_LENGTH);
+  int y = random(0, MAX_WIDTH);
+  
+  double coord = x + (y / 100.0);
+  
+  return(coord);
 }
 
 // Checks to see if the head of the snake is inside the bounds of the field
@@ -253,8 +271,19 @@ void SpeedLimiter(unsigned long before, const int WAITTIME)
 }
 
 
+int XSplit(double coord)
+{
+  int x = (int)coord;
+  return(x);
+}
 
-
+int YSplit(double coord)
+{
+  int x = XSplit(coord);
+  int y = (coord - XSplit) * 100;
+  
+  return(y);
+}
 
 
 
