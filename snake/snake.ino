@@ -100,14 +100,13 @@ void snake()
   /****************************************/
   
   // Displays a start screen before the game begins
-  Startup();  
+  Startup(hCoord, aCoord);  
   
   // main loop the game goes through
   do
   {
     before = millis();
     
-    // INSERT CALCULATION CODE HERE //
     // Take input each loop iteration
     snakeDirection = FindInput();
     
@@ -401,7 +400,7 @@ void UpdateLED()
 
 // Changes the direct variable based on which button 
 // the player is pressing: up, down, left, right
-void FindInput()
+void FindInput(int snakeDirection)
 {
   int snakeDirection;
   
