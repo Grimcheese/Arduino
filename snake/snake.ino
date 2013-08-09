@@ -1,7 +1,3 @@
-// adding comments here to test git
-
-
-
 // Snake Arduino Project
 // Author: Alby Chawula
 // Date: 7/8/2013
@@ -88,14 +84,15 @@ void snake()
   
   const int WAITTIME = 500; // Delay in ms between each refresh
     
-  int counter = 4;          // counter and lowNum are used to identify different
-  int lowNum = 1;           // segments of the snake
-  unsigned int before;
+  int counter = 4;          // counter represents the head of the snake on the grid
+  int lowNum = 1            // lowNum represents the tail of the snake on the grid
+  unsigned int before;      // before marks the time before the calculations take place
+                            // before is used as part of the delay calculation
   
   double hCoord;        // The coordinate of the head in the form x.y
   double aCoord;        // The coordinate of the apple in the form x.y
   
-  boolean boounds;
+  boolean bounds;      
   boolean gameOver = false;
   
   int snakeDirection;
@@ -115,7 +112,7 @@ void snake()
     snakeDirection = FindInput();
     
     // Move the head to a new location based on the direction it is heading
-    hCoord = MoveHead(snakeDirection);
+    hCoord = MoveHead(snakeDirection, hCoord);
         
     // test for collisions with the apple, the boundary and the snake
     // 
@@ -168,9 +165,10 @@ void Startup()
 {
   
   
-  
   // Initial setup of the grid for the game to start
-  UpdateGrid(10.10, 3);
+  hCoord = 10.10
+  
+  UpdateGrid(hCoord, 3);
   UpdateGrid(10.11, 2);
   UpdateGrid(10.12, 1);
   
