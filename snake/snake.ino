@@ -178,7 +178,26 @@ void Startup(double hCoord, double aCoord)
 
 double GenerateApple()
 {
-   
+  boolean valid;
+  
+  do
+  {
+    double coord = GenerateCoord();
+    int x = XSplit();
+    int x = YSplit();
+    if(grid[x][y] > 0)
+    {
+      valid = false;
+    }  
+    else
+    {
+      valid = true;
+    }
+  }while(valid = false);
+  
+  grid[x][y] = -1;
+  return(coord);
+  
 }
 
 // Generates a random coordinate within the bounds of
