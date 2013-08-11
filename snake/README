@@ -1,7 +1,11 @@
 This is a snake game designed for an arduino that is connected to 
-an LED matrix of any particular size. 
+an LED matrix of any particular size and takes input from a joystick 
 
 Currently the pins and array names for input and output are not labelled correctly
 and some functions are not complete
+
+Testing is still required for:
+	all parts of the code
+	
 
 THIS PROJECT IS STILL A WORK IN PROGRESS
