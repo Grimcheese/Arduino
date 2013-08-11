@@ -87,7 +87,7 @@ void loop()
     snake();
   }
   
- 
+   
 }
 
 void snake()
@@ -178,6 +178,8 @@ void snake()
 // Function that displays the start screen of snake
 void Startup(double hCoord, double aCoord)
 {
+ 
+ 
   
   
   // Initial setup of the grid for the game to start
@@ -429,4 +431,50 @@ void FindInput(int snakeDirection)
     
   return(snakeDirection);
 }
+
+
+// Extra function that will print letters on the 
+// LED matrix not required for the snake game but
+// could be useful
+
+// Will print a letter based on the starting location of the line
+// and the number of letters in the word
+// letters are fixed width of 3 pixels wide
+void PrintLetter(char letter, double startLoc, int letterNum)
+{
+  switch(letter)
+  {
+    case 'a' :
+      
+      break;
+    case 'b' :
+      break;
+    case 'c' :
+      break;
+    case 'd' :
+      break;
+    case 'e' :
+      break;
+    case 'f' :
+      break;
+    case 'g' :
+      break;
+    case 'h' :
+      break;
+    case 'i' :
+      break;
+    case 'j' :
+      break;
+    case 'k' :
+      break;
+    case 'l' :
+      break
+    case 'm' :
+      break;
+    default:
+  }
+}
+
+
+
 
