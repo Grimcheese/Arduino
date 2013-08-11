@@ -438,14 +438,29 @@ void FindInput(int snakeDirection)
 // could be useful
 
 // Will print a letter based on the starting location of the line
-// and the number of letters in the word
-// letters are fixed width of 3 pixels wide
-void PrintLetter(char letter, double startLoc, int letterNum)
+// and the letters that preceeded it
+int PrintLetter(char letter, double startLoc, int offset)
 {
+  int offset;
+  
+  x1 = XSplit(startLoc);
+  x1 = x1 + offset;
+  
+  y1 = YSplit(startLoc);
+  
   switch(letter)
   {
     case 'a' :
-      
+        x2 = x1 + 3;
+        y2 = y1 + 4;
+        x3 = x1 + 4;
+        y3 = y1 + 1;
+    
+        drawLine(x1, y1, x2, y2);
+        drawLine(x2, y2, x3, y1);
+        drawLine(x1, y3, x3, y3);
+        
+        offset = 6;
       break;
     case 'b' :
       break;
@@ -460,6 +475,13 @@ void PrintLetter(char letter, double startLoc, int letterNum)
     case 'g' :
       break;
     case 'h' :
+      x2 = x1 + 3;
+      y2 = y1 + 4;
+      y3 = y1 + 2;
+    
+      drawLine(x1, y1, x1, y2);
+      drawLine(x2, y1, x2, y2);
+      drawLine(x1, y3, x2, y3);
       break;
     case 'i' :
       break;
@@ -468,11 +490,13 @@ void PrintLetter(char letter, double startLoc, int letterNum)
     case 'k' :
       break;
     case 'l' :
-      break
+      break;
     case 'm' :
       break;
     default:
   }
+  
+  return(offset);
 }
 
 
