@@ -482,8 +482,13 @@ int PrintLetter(char letter, double startLoc, int offset)
       drawLine(x1, y1, x1, y2);
       drawLine(x2, y1, x2, y2);
       drawLine(x1, y3, x2, y3);
+      
+      offset = 4;
       break;
     case 'i' :
+      drawLine(x1, y1, x2, y1);
+      drawLine(x1, y2, x2, y2);
+      drawLine(x3, y1, x3, y2);
       break;
     case 'j' :
       break;
