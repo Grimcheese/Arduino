@@ -395,17 +395,17 @@ void UpdateLED()
    {
      if(grid[i][j] != 0)
      {
-       digitalWrite(pin[i][j], HIGH);   // MAY NEED TO CHANGE PIN NAMES
+       drawLine(i,j, i, j);   // MAY NEED TO CHANGE PIN NAMES
      }
      else
      {
-       digitalWrite(pin[i][j], LOW);
+       // turn off LED located at i, j
      }
    }
  } 
 }
 
-// Changes the direct variable based on which button 
+// Changes the snakeDirection variable based on which button 
 // the player is pressing: up, down, left, right
 void FindInput(int snakeDirection)
 {
@@ -418,8 +418,7 @@ void FindInput(int snakeDirection)
   {
     joystickState[i] = joystickPin
   }
-  
-  
+    
   for(int i = 0 ; i < 4; i++)
   {
     if(joystickState[i] == HIGH)
