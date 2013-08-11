@@ -19,13 +19,17 @@ int clockPins[3] = {};
 
 int joystickState[4] = {0}; // stores the state of the 4 positions of the joystick
                             // index numbers: 0 = up, 1 = down, 2 = left, 3 = right
-                            
+ 
+
+// The segments of the snake are represented as numbers starting from
+// 1. The lowest number represents the tail of the snake
+
 // Set the size of the matrix array being used
 const int MAX_WIDTH = 32;
 const int MAX_LENGTH = 32;
 int grid[MAX_LENGTH][MAX_WIDTH];
 
-int score = 0;
+int score = 0; // A score counter that increments when the snake eats an apple.
 
 /*******************************************************************************/
 
@@ -314,15 +318,6 @@ int YSplit(double coord)
   
   return(y);
 }
-
-
-
-
-
-
-
-
-
 
 double SearchGrid(int value)
 
