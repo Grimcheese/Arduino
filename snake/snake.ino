@@ -19,6 +19,7 @@ int clockPins[3] = {};
 
 int joystickState[4] = {0}; // stores the state of the 4 positions of the joystick
                             // index numbers: 0 = up, 1 = down, 2 = left, 3 = right
+                            // Each index of the array can be either HIGH or LOW (1 or 0)
  
 
 // The segments of the snake are represented as numbers starting from
@@ -32,11 +33,6 @@ int grid[MAX_LENGTH][MAX_WIDTH];
 int score = 0; // A score counter that increments when the snake eats an apple.
 
 /*******************************************************************************/
-
-// FUNCTION PROTOTYPES
-void FindInput(void);           // Takes user input and assigns 
-int PinRead(int pin);           // Reads input from a specific pin
-void UpdateGrid();              // Updates the grid array 
 
 void setup()
 {
@@ -418,7 +414,7 @@ void FindInput(int snakeDirection)
   // is high or low
   for(int i = 0; i < 4; i++)
   {
-    joystickState[i] = joystickPin
+    joystickState[i] = digitalRead(joystickPin
   }
     
   for(int i = 0 ; i < 4; i++)
