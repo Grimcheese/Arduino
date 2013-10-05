@@ -45,7 +45,7 @@ void setup()
   }
   
   // Initialize the joystick pins
-  for(i = 0; i < 2; i+)
+  for(i = 0; i < 2; i++)
   {
     pinMode(joystickPins[i], INPUT);
   }
@@ -75,7 +75,7 @@ void setup()
 // At desired time snake starts up
 void loop()
 {
-  
+  int time = 1;
   if(time)
   {
     // Starts the snake game when it is a specific time
@@ -96,7 +96,7 @@ void snake()
   const int WAITTIME = 500; // Delay in ms between each refresh
     
   int counter = 4;          // counter represents the head of the snake on the grid
-  int lowNum = 1            // lowNum represents the tail of the snake on the grid
+  int lowNum = 1;            // lowNum represents the tail of the snake on the grid
   unsigned int before;      // before marks the time before the calculations take place
                             // before is used as part of the delay calculation
   
@@ -120,7 +120,7 @@ void snake()
     before = millis();
     
     // Take input each loop iteration
-    snakeDirection = FindInput();
+    snakeDirection = FindInput(snakeDirection);
     
     // Move the head to a new location based on the direction it is heading
     hCoord = MoveHead(snakeDirection, hCoord);
@@ -134,12 +134,12 @@ void snake()
     // different options depending on collisions
     switch(collisions)
     {
-      case(0):
+      case 0:
         // no collisions
         EmptyCell(lowNum);
         lowNum++;
         break;
-      case(1):
+      case 1:
         // apple collision
         
         // Generate a new location for the apple ensuring that
@@ -148,7 +148,7 @@ void snake()
         
         score++;
         break;
-      case(2):
+      case 2:
         // snake collision or wall collision
         gameOver == true;
         break;
@@ -174,12 +174,8 @@ void snake()
 // Function that displays the start screen of snake
 void Startup(double hCoord, double aCoord)
 {
- 
- 
-  
-  
   // Initial setup of the grid for the game to start
-  hCoord = 10.10
+  hCoord = 10.10;
   aCoord = GenerateApple();
   
   UpdateGrid(hCoord, 3);
@@ -193,11 +189,13 @@ double GenerateApple()
 {
   boolean valid;
   
+  int x, y;
+  
   do
   {
     double coord = GenerateCoord();
-    int x = XSplit();
-    int x = YSplit();
+    x = XSplit();
+    y = YSplit();
     if(grid[x][y] > 0)
     {
       valid = false;
@@ -405,11 +403,8 @@ void UpdateLED()
 
 // Changes the snakeDirection variable based on which button 
 // the player is pressing: up, down, left, right
-void FindInput(int snakeDirection)
-{
-  int snakeDirection;
-  
-  
+int FindInput(int snakeDirection)
+{ 
   // cycles through each direction testing to see if it
   // is high or low
   for(int i = 0; i < 4; i++)
